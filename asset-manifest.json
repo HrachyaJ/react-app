@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/react-app/static/css/main.a574cd51.css",
+    "main.js": "/react-app/static/js/main.88fcf82d.js",
+    "static/media/ecom-react-logo.png": "/react-app/static/media/ecom-react-logo.272eb49cf3b4b9eee103.png",
+    "index.html": "/react-app/index.html",
+    "main.a574cd51.css.map": "/react-app/static/css/main.a574cd51.css.map",
+    "main.88fcf82d.js.map": "/react-app/static/js/main.88fcf82d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a574cd51.css",
+    "static/js/main.88fcf82d.js"
+  ]
+}
