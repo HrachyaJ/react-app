@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      const segment = 1; // Adjust this if your app is not at the root of the domain
+      const locationSegments = window.location.pathname.split('/');
+      const repoName = locationSegments[segment];
+      const newPath = locationSegments.slice(segment + 1).join('/');
+      window.location.href = `/${repoName}/${newPath}`;
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
