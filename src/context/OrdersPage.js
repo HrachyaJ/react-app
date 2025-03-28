@@ -114,7 +114,7 @@ const OrdersPage = () => {
           </table>
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
+        <div className="bg-white rounded-lg shadow-md p-8 text-center p-6">
           <p className="text-gray-600 mb-4">You haven't placed any orders yet.</p>
           <Link
             to="/products"
