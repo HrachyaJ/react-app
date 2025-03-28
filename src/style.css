@@ -1754,3 +1754,8 @@ video {
 .animate-spin {
   animation: spin 1s linear infinite;
 }
+
+.p-6 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
