@@ -7,29 +7,144 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   
-  // Mock product data - in a real app, this would come from an API
-  const product = {
-    id: parseInt(productId),
-    name: `Product ${productId}`,
-    description: "This is a detailed description of the product. It includes information about the features, materials, and usage instructions. The product is designed to provide maximum comfort and efficiency for the user.",
-    price: 99.99,
-    image: `{https://picsum.photos/800/600?random=${productId}}`,
-    category: "electronics",
-    features: [
-      "High-quality materials",
-      "Durable construction",
-      "User-friendly design",
-      "Energy efficient",
-      "1-year warranty"
-    ],
-    specifications: {
-      "Dimensions": "10 x 5 x 2 inches",
-      "Weight": "1.5 lbs",
-      "Color": "Black/Silver",
-      "Material": "Aluminum and plastic",
-      "Power": "Rechargeable battery (included)"
+  // Mock products data - matching the products from ProductsPage.js
+  const products = [
+    {
+      id: 1,
+      name: "Wireless Headphones",
+      description: "Premium sound quality with noise cancellation technology.",
+      price: 99.99,
+      image: "https://img.freepik.com/free-psd/technological-headphones-isolated_23-2151209619.jpg?t=st=1740756622~exp=1740760222~hmac=892927eb7062a6ccbb759fca8525a468cafc0d432a1048164bce479cba3a0434&w=1380",
+      category: "electronics",
+      features: [
+        "Noise cancellation technology",
+        "Wireless connectivity",
+        "Long battery life",
+        "Comfortable design",
+        "Includes carrying case"
+      ],
+      specifications: {
+        "Dimensions": "7 x 3 x 6 inches",
+        "Weight": "0.5 lbs",
+        "Color": "Black",
+        "Battery Life": "Up to 20 hours",
+        "Bluetooth Range": "33 feet"
+      }
+    },
+    {
+      id: 2,
+      name: "Smart Watch",
+      description: "Track your fitness and stay connected with notifications.",
+      price: 149.99,
+      image: "https://img.freepik.com/free-vector/realistic-fitness-trackers_23-2148530529.jpg?ga=GA1.1.104960088.1740074004&semt=ais_hybrid",
+      category: "electronics",
+      features: [
+        "Fitness tracking",
+        "Heart rate monitor",
+        "GPS tracking",
+        "Water resistant",
+        "Smartphone notifications"
+      ],
+      specifications: {
+        "Dimensions": "1.5 x 1.0 x 0.4 inches",
+        "Weight": "0.2 lbs",
+        "Color": "Silver/Black",
+        "Battery Life": "Up to 7 days",
+        "Display": "1.4 inch AMOLED"
+      }
+    },
+    {
+      id: 3,
+      name: "Portable Speaker",
+      description: "Immersive sound experience with 10 hours of battery life.",
+      price: 79.99,
+      image: "https://img.freepik.com/free-photo/composition-smart-speaker-table_23-2149036844.jpg?t=st=1740756622~exp=1740760222~hmac=e4992bce30c1e3ff982cf62a0e9468a37ce2222260497d248f447c246fc5de23&w=1380",
+      category: "electronics",
+      features: [
+        "10 hours battery life",
+        "Bluetooth 5.0",
+        "Waterproof design",
+        "360-degree sound",
+        "Compact size"
+      ],
+      specifications: {
+        "Dimensions": "6 x 3 x 3 inches",
+        "Weight": "1 lb",
+        "Color": "Blue",
+        "Battery Life": "10 hours",
+        "Connectivity": "Bluetooth, AUX"
+      }
+    },
+    {
+      id: 4,
+      name: "Laptop Backpack",
+      description: "Durable, water-resistant backpack with multiple compartments.",
+      price: 59.99,
+      image: "https://img.freepik.com/free-photo/man-packing-away-his-laptop-into-bag_53876-98075.jpg?ga=GA1.1.104960088.1740074004&semt=ais_hybrid",
+      category: "fashion",
+      features: [
+        "Water-resistant material",
+        "Padded laptop compartment",
+        "Multiple storage pockets",
+        "Comfortable straps",
+        "Lightweight design"
+      ],
+      specifications: {
+        "Dimensions": "18 x 12 x 6 inches",
+        "Weight": "2 lbs",
+        "Color": "Black",
+        "Material": "Polyester",
+        "Laptop Size": "Up to 15.6 inches"
+      }
+    },
+    {
+      id: 5,
+      name: "Coffee Maker",
+      description: "Brew perfect coffee with this programmable coffee maker.",
+      price: 299.99,
+      image: "https://img.freepik.com/premium-psd/coffee-machine-3d-illustration_788357-2140.jpg?ga=GA1.1.104960088.1740074004&semt=ais_hybrid",
+      category: "home",
+      features: [
+        "Programmable timer",
+        "Brew strength control",
+        "Keep warm function",
+        "Easy to clean",
+        "Large capacity"
+      ],
+      specifications: {
+        "Dimensions": "14 x 10 x 12 inches",
+        "Weight": "10 lbs",
+        "Color": "Stainless Steel",
+        "Capacity": "12 cups",
+        "Power": "1100 watts"
+      }
+    },
+    {
+      id: 6,
+      name: "Yoga Mat",
+      description: "Non-slip, eco-friendly yoga mat for comfortable workouts.",
+      price: 29.99,
+      image: "https://img.freepik.com/free-photo/top-view-pink-fitness-mat-two-black-dumbbells-isolated-pink-surface_181624-48649.jpg?ga=GA1.1.104960088.1740074004&semt=ais_hybrid",
+      category: "fashion",
+      features: [
+        "Non-slip surface",
+        "Eco-friendly material",
+        "Extra cushioning",
+        "Lightweight",
+        "Easy to clean"
+      ],
+      specifications: {
+        "Dimensions": "72 x 24 inches",
+        "Weight": "2 lbs",
+        "Color": "Pink/Black",
+        "Material": "TPE Foam",
+        "Thickness": "6mm"
+      }
     }
-  };
+  ];
+
+  // Find the specific product based on the productId
+  const product = products.find(p => p.id === parseInt(productId));
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -40,6 +155,10 @@ const ProductDetail = () => {
     addToCart(product);
     navigate("/checkout");
   };
+
+  if (!product) {
+    return <div>Product not found</div>;
+  }
 
   return (
     <div className="max-w-6xl mx-auto">
